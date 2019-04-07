@@ -1,15 +1,14 @@
 import React from 'react';
-import { Container, Row, Col, Alert } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
+import CartForm from './CartForm';
 import Cart from './Cart';
 
 const App = () => (
   <Container>
     <Row>
-      <Col>
-        <Alert color="primary">
-        There must be submit form
-        </Alert>
+      <Col lg="6">
+        <CartForm />
       </Col>
     </Row>
     <Row>
