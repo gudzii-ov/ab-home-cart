@@ -7,9 +7,7 @@ import _ from 'lodash';
 
 import connect from '../connect';
 
-const mapStateToProps = ({ products }) => products;
-
-@connect(mapStateToProps)
+@connect()
 @reduxForm({ form: 'newProduct' })
 class CartForm extends React.Component {
   handleSubmit = (values) => {
