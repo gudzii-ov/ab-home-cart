@@ -6,7 +6,7 @@ const CartForm = () => (
     <InputGroup>
       <Input className="form-control" type="text" name="product-name" placeholder="Product" required />
       <Input className="form-control" type="text" name="product-price" placeholder="Price" required />
-      <Button>Submit</Button>
+      <Button color="success">Add</Button>
     </InputGroup>
   </Form>
 );
