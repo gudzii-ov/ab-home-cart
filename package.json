@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Simple cart SPA",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "eslint": "eslint",
     "webpack": "webpack"
   },
