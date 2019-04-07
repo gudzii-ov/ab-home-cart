@@ -1,2 +1,2 @@
-# ab-home-cart
+# Alpha Bank homework
 Simple cart SPA
