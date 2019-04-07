@@ -10,6 +10,11 @@ const mapStateToProps = ({ products }) => products;
 
 @connect(mapStateToProps)
 class CartTable extends React.Component {
+  handleRemove = id => () => {
+    const { removeProduct } = this.props;
+    removeProduct({ data: id });
+  }
+
   renderCartItem = (product) => {
     const { id, name, price } = product;
     return (
@@ -22,7 +27,7 @@ class CartTable extends React.Component {
               <Button variant="warning">edit</Button>
             </ButtonGroup>
             <ButtonGroup>
-              <Button variant="danger">del</Button>
+              <Button onClick={this.handleRemove(id)} variant="danger">del</Button>
             </ButtonGroup>
           </ButtonToolbar>
         </td>
