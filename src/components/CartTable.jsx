@@ -31,7 +31,7 @@ class CartTable extends React.Component {
   }
 
   render() {
-    const { allIds, byId } = this.props;
+    const { allIds, byId, totalCost } = this.props;
     return (
       <Table>
         <thead className="bg-light">
@@ -48,7 +48,7 @@ class CartTable extends React.Component {
         <tfoot className="bg-light">
           <tr>
             <td>Total</td>
-            <td>40 $</td>
+            <td>{`${totalCost} $`}</td>
           </tr>
         </tfoot>
       </Table>
