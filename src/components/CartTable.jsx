@@ -4,41 +4,55 @@ import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
-const renderCartItems = () => (
-  <tr>
-    <td>first</td>
-    <td className="d-flex justify-content-between align-items-center">
-      {'10 $'}
-      <ButtonToolbar>
-        <ButtonGroup>
-          <Button variant="warning">edit</Button>
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button variant="danger">del</Button>
-        </ButtonGroup>
-      </ButtonToolbar>
-    </td>
-  </tr>
-);
+import connect from '../connect';
 
-const CartTable = () => (
-  <Table>
-    <thead className="bg-light">
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      {renderCartItems()}
-    </tbody>
-    <tfoot className="bg-light">
-      <tr>
-        <td>Total</td>
-        <td>40 $</td>
-      </tr>
-    </tfoot>
-  </Table>
-);
+const mapStateToProps = ({ products }) => products;
 
+@connect(mapStateToProps)
+class CartTable extends React.Component {
+  renderCartItem = (product) => {
+    const { id, name, price } = product;
+    return (
+      <tr key={id}>
+        <td>{name}</td>
+        <td className="d-flex justify-content-between align-items-center">
+          {`${price} $`}
+          <ButtonToolbar>
+            <ButtonGroup>
+              <Button variant="warning">edit</Button>
+            </ButtonGroup>
+            <ButtonGroup>
+              <Button variant="danger">del</Button>
+            </ButtonGroup>
+          </ButtonToolbar>
+        </td>
+      </tr>
+    );
+  }
+
+  render() {
+    const { allIds, byId } = this.props;
+    return (
+      <Table>
+        <thead className="bg-light">
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            allIds.map(id => this.renderCartItem(byId[id]))
+          }
+        </tbody>
+        <tfoot className="bg-light">
+          <tr>
+            <td>Total</td>
+            <td>40 $</td>
+          </tr>
+        </tfoot>
+      </Table>
+    );
+  }
+}
 export default CartTable;
