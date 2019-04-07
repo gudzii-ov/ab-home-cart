@@ -1,14 +1,43 @@
 import React from 'react';
-import { Button, Form, InputGroup, Input } from 'reactstrap';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { Field, reduxForm } from 'redux-form';
 
-const CartForm = () => (
-  <Form>
-    <InputGroup>
-      <Input className="form-control" type="text" name="product-name" placeholder="Product" required />
-      <Input className="form-control" type="text" name="product-price" placeholder="Price" required />
-      <Button color="success">Add</Button>
-    </InputGroup>
-  </Form>
-);
+import connect from '../connect';
+
+const mapStateToProps = ({ products }) => products;
+
+@connect(mapStateToProps)
+@reduxForm({ form: 'newProduct' })
+class CartForm extends React.Component {
+  render() {
+    return (
+      <Form>
+        <Form.Group>
+          <InputGroup>
+            <Field
+              type="text"
+              className="form-control"
+              name="product-name"
+              component="input"
+              placeholder="Product"
+              required
+            />
+            <Field
+              type="text"
+              className="form-control"
+              name="product-price"
+              component="input"
+              placeholder="Price"
+              required
+            />
+            <Button variant="success">Add</Button>
+          </InputGroup>
+        </Form.Group>
+      </Form>
+    );
+  }
+}
 
 export default CartForm;

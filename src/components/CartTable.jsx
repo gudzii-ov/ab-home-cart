@@ -1,5 +1,8 @@
 import React from 'react';
-import { Table, Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
+import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 const renderCartItems = () => (
   <tr>
@@ -8,10 +11,10 @@ const renderCartItems = () => (
       {'10 $'}
       <ButtonToolbar>
         <ButtonGroup>
-          <Button color="warning">edit</Button>
+          <Button variant="warning">edit</Button>
         </ButtonGroup>
         <ButtonGroup>
-          <Button color="danger">del</Button>
+          <Button variant="danger">del</Button>
         </ButtonGroup>
       </ButtonToolbar>
     </td>
