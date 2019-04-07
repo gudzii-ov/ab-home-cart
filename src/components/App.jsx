@@ -1,16 +1,22 @@
 import React from 'react';
 import { Container, Row, Col, Alert } from 'reactstrap';
 
+import Cart from './Cart';
+
 const App = () => (
   <Container>
     <Row>
       <Col>
         <Alert color="primary">
-        This is a primary alert — check it out!
+        There must be submit form
         </Alert>
       </Col>
     </Row>
-    <Row />
+    <Row>
+      <Col>
+        <Cart />
+      </Col>
+    </Row>
   </Container>
 );
 
