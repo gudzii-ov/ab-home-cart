@@ -13,7 +13,8 @@ class CartForm extends React.Component {
   handleSubmit = (values) => {
     const { addProduct, reset } = this.props;
     const id = _.uniqueId();
-    const product = { id, ...values };
+    const { name, price } = values;
+    const product = { id, name, price: Number(price) };
     addProduct({ data: product });
     reset();
   };
