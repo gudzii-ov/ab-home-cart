@@ -19,13 +19,15 @@
     "jquery": "^3.3.1",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "reactstrap": "^8.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.5",
     "@babel/core": "^7.0.0",
     "@babel/node": "^7.0.0",
     "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
     "acorn": "^6.1.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",

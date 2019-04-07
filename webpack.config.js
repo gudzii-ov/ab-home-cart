@@ -5,6 +5,9 @@ module.exports = {
   entry: [
     `${__dirname}/src/index.jsx`,
   ],
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
