@@ -8,6 +8,7 @@ import CartTable from './CartTable';
 
 const Cart = () => (
   <Container>
+    <h1>Cart</h1>
     <Row>
       <Col lg="6">
         <CartForm />
