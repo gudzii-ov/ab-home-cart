@@ -1,41 +1,22 @@
 import React from 'react';
-import { Table, Button, ButtonGroup, ButtonToolbar } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
-const renderCartItems = () => (
-  <tr>
-    <td>first</td>
-    <td className="d-flex justify-content-between align-items-center">
-      {'10 $'}
-      <ButtonToolbar>
-        <ButtonGroup>
-          <Button color="warning">edit</Button>
-        </ButtonGroup>
-        <ButtonGroup>
-          <Button color="danger">del</Button>
-        </ButtonGroup>
-      </ButtonToolbar>
-    </td>
-  </tr>
-);
+import CartForm from './CartForm';
+import CartTable from './CartTable';
 
 const Cart = () => (
-  <Table>
-    <thead className="bg-light">
-      <tr>
-        <th>Name</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      {renderCartItems()}
-    </tbody>
-    <tfoot className="bg-light">
-      <tr>
-        <td>Total</td>
-        <td>40 $</td>
-      </tr>
-    </tfoot>
-  </Table>
+  <Container>
+    <Row>
+      <Col lg="6">
+        <CartForm />
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <CartTable />
+      </Col>
+    </Row>
+  </Container>
 );
 
 export default Cart;
