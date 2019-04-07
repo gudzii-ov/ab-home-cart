@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "Simple cart SPA",
   "scripts": {
-    "webpack-serve": "webpack-serve",
-    "gulp": "gulp",
+    "start": "webpack-dev-server --open",
     "eslint": "eslint",
     "webpack": "webpack"
   },

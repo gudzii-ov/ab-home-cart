@@ -1,7 +1,7 @@
 install: install-deps
 
 develop:
-	npx webpack-serve
+	npx webpack-dev-server --open
 
 install-deps:
 	npm install
