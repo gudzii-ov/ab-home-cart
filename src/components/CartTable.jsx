@@ -5,6 +5,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 
 import connect from '../connect';
+import EditModal from './EditModal';
 
 const mapStateToProps = ({ products }) => products;
 
@@ -13,6 +14,12 @@ class CartTable extends React.Component {
   handleRemove = id => () => {
     const { removeProduct } = this.props;
     removeProduct({ data: id });
+  }
+
+  handleEdit = id => () => {
+    const { setModalState, toggleModal } = this.props;
+    setModalState({ id });
+    toggleModal({ modalDisplay: 'show' });
   }
 
   renderCartItem = (product) => {
@@ -24,7 +31,7 @@ class CartTable extends React.Component {
           {`${price} $`}
           <ButtonToolbar>
             <ButtonGroup>
-              <Button variant="warning">edit</Button>
+              <Button onClick={this.handleEdit(id)} variant="warning">edit</Button>
             </ButtonGroup>
             <ButtonGroup>
               <Button onClick={this.handleRemove(id)} variant="danger">del</Button>
@@ -38,25 +45,28 @@ class CartTable extends React.Component {
   render() {
     const { allIds, byId, totalCost } = this.props;
     return (
-      <Table>
-        <thead className="bg-light">
-          <tr>
-            <th>Name</th>
-            <th>Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            allIds.map(id => this.renderCartItem(byId[id]))
-          }
-        </tbody>
-        <tfoot className="bg-light">
-          <tr>
-            <td>Total</td>
-            <td>{`${totalCost} $`}</td>
-          </tr>
-        </tfoot>
-      </Table>
+      <React.Fragment>
+        <Table>
+          <thead className="bg-light">
+            <tr>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              allIds.map(id => this.renderCartItem(byId[id]))
+            }
+          </tbody>
+          <tfoot className="bg-light">
+            <tr>
+              <td>Total</td>
+              <td>{`${totalCost} $`}</td>
+            </tr>
+          </tfoot>
+        </Table>
+        <EditModal />
+      </React.Fragment>
     );
   }
 }

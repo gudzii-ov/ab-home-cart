@@ -40,7 +40,21 @@ const products = handleActions({
   },
 }, { byId: {}, allIds: [], totalCost: 0 });
 
+const modalUIState = handleActions({
+  [actions.toggleModal](state, { payload: { modalDisplay } }) {
+    return { modalDisplay };
+  },
+}, { modalDisplay: 'hide' });
+
+const modalState = handleActions({
+  [actions.setModalState](state, { payload: { id } }) {
+    return { id };
+  },
+}, { id: 0 });
+
 export default combineReducers({
   products,
+  modalState,
+  modalUIState,
   form: formReducer,
 });
