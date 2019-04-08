@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { Field, reduxForm } from 'redux-form';
-import _ from 'lodash';
+import { uniqueId } from 'lodash';
 
 import connect from '../connect';
 
@@ -12,7 +12,7 @@ import connect from '../connect';
 class CartForm extends React.Component {
   handleSubmit = (values) => {
     const { addProduct, reset } = this.props;
-    const id = _.uniqueId();
+    const id = uniqueId();
     const { name, price } = values;
     const product = { id, name, price: Number(price) };
     addProduct({ data: product });
