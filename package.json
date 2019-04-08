@@ -16,7 +16,6 @@
   "homepage": "https://github.com/gudzii-ov/ab-home-cart#readme",
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "popper.js": "^1.15.0",
     "react": "^16.8.6",
@@ -47,9 +46,11 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.3.1",
     "style-loader": "^0.23.1",
     "surge": "^0.20.3",
     "webpack": "^4.25.1",
+    "webpack-bundle-analyzer": "^3.2.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.2.1"
   }
