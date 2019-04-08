@@ -46,7 +46,7 @@ class EditForm extends React.Component {
               placeholder="Product"
             />
             <Field
-              type="text"
+              type="number"
               className="form-control"
               name="price"
               component="input"

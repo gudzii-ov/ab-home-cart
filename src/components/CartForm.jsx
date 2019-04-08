@@ -35,7 +35,7 @@ class CartForm extends React.Component {
               required
             />
             <Field
-              type="text"
+              type="number"
               className="form-control"
               name="price"
               component="input"
